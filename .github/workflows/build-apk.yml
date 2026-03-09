@@ -20,9 +20,11 @@ jobs:
             unzip -o "$ZIP_FILE" -d extracted
             cp -r extracted/*/* .
           fi
-name: Update Capacitor URL
+
+      - name: Update Capacitor URL
         run: |
           sed -i "s|https://7428e099-5fca-4b30-82a4-0f9e37684d34.lovableproject.com?forceHideBadge=true|https://proheadshot-pix.lovable.app|g" capacitor.config.ts
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
