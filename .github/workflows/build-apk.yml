@@ -13,6 +13,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Extract ZIP file
+        run: |
+          ZIP_FILE=$(find . -name "*.zip" | head -1)
+          if [ -n "$ZIP_FILE" ]; then
+            unzip -o "$ZIP_FILE" -d extracted
+            cp -r extracted/*/* .
+          fi
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
